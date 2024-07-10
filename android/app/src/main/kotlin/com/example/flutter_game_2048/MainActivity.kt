@@ -1,4 +1,4 @@
-package com.example.flutter_game_2048
+package com.teapotlab.game_2048
 
 import io.flutter.embedding.android.FlutterActivity
 
