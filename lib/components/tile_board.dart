@@ -20,10 +20,7 @@ class TileBoardWidget extends ConsumerWidget {
     final board = ref.watch(boardManager);
 
     //Decides the maximum size the Board can be based on the shortest size of the screen.
-    final size = max(
-        290.0,
-        min((MediaQuery.of(context).size.shortestSide * 0.90).floorToDouble(),
-            460.0));
+    final size = max(290.0, min((MediaQuery.of(context).size.shortestSide * 0.90).floorToDouble(), 460.0));
 
     //Decide the size of the tile based on the size of the board minus the space between each tile.
     final sizePerTile = (size / 4).floorToDouble();
@@ -52,13 +49,16 @@ class TileBoardWidget extends ConsumerWidget {
                     color: tileColors[tile.value],
                     borderRadius: BorderRadius.circular(6.0)),
                 child: Center(
-                    child: Text(
-                  '${tile.value}',
-                  style: TextStyle(
+                  child: Text(
+                    '${tile.value}',
+                    style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 24.0,
-                      color: tile.value < 8 ? textColor : textColorWhite),
-                )),
+                      color: tile.value < 8 ? textColor : textColorWhite,
+                      fontFamily: 'Quicksand'
+                    ),
+                  )
+                ),
               ),
             );
           }),
@@ -72,9 +72,11 @@ class TileBoardWidget extends ConsumerWidget {
                   Text(
                     board.won ? 'You win!' : 'Game over!',
                     style: const TextStyle(
-                        color: textColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 64.0),
+                      color: textColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 64.0,
+                      fontFamily: 'Quicksand'
+                    ),
                   ),
                   ButtonWidget(
                     text: board.won ? 'New Game' : 'Try again',
