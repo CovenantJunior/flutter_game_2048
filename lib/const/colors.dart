@@ -1,12 +1,13 @@
 import 'dart:ui';
 
-const backgroundColor = Color(0xfffaf8ef);
-const textColor = Color(0xff776e65);
+const backgroundColor = Color(0x511B1B1D);
+const titleColor = Color.fromARGB(255, 255, 255, 255);
+const textColor = Color.fromARGB(255, 0, 0, 0);
 const textColorWhite = Color(0xfff9f6f2);
-const boardColor = Color(0xffbbada0);
-const emptyTileColor = Color(0xffcdc1b4);
-const buttonColor = Color(0xff8f7a66);
-const scoreColor = Color(0xffbbada0);
+const boardColor = Color(0xFFBBA0B5);
+const emptyTileColor = Color(0x59EEE4DA);
+const buttonColor = Color(0x006e5c80);
+const scoreColor = Color(0xFF6E5C80);
 const overlayColor = Color.fromRGBO(238, 228, 218, 0.73);
 
 const color2 = Color(0xffeee4da);

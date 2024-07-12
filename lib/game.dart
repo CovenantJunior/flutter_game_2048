@@ -90,13 +90,37 @@ class _GameState extends ConsumerState<Game>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      '2048',
-                      style: TextStyle(
-                          color: textColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 52.0),
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '2048',
+                          style: TextStyle(
+                            color: titleColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 52.0,
+                            fontFamily: 'Quicksand',
+                          ),
+                        ),
+                        Text(
+                          'Join the numbers and get to the ',
+                          style: TextStyle(
+                            color: titleColor,
+                            fontFamily: 'Quicksand',
+                            fontSize: 13.0,
+                          ),
+                        ),
+                        Text(
+                          '2048 tile! ',
+                          style: TextStyle(
+                            color: titleColor,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Quicksand'
+                          ),
+                        ),
+                      ],
                     ),
+
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -115,7 +139,7 @@ class _GameState extends ConsumerState<Game>
                               },
                             ),
                             const SizedBox(
-                              width: 16.0,
+                              width: 10.0,
                             ),
                             ButtonWidget(
                               icon: Icons.refresh,
