@@ -103,7 +103,7 @@ flutter:
         - asset: lib/fonts/Quicksand/static/Quicksand-Light.ttf
         - asset: lib/fonts/Quicksand/static/Quicksand-Medium.ttf
         - asset: lib/fonts/Quicksand/static/Quicksand-Regular.ttf
-        - asset: lib/fonts/Quicksand/static/Quicksand-SEmiBold.ttf
+        - asset: lib/fonts/Quicksand/static/Quicksand-SemiBold.ttf
     
   #   - family: Trajan Pro
   #     fonts:
