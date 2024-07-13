@@ -72,11 +72,14 @@ class TileBoardWidget extends ConsumerWidget {
                   Text(
                     board.won ? 'You win!' : 'Game over!',
                     style: const TextStyle(
-                      color: textColor,
+                      color: scoreColor,
                       fontWeight: FontWeight.bold,
-                      fontSize: 64.0,
+                      fontSize: 50.0,
                       fontFamily: 'Quicksand'
                     ),
+                  ),
+                  const SizedBox(
+                    height: 20,
                   ),
                   ButtonWidget(
                     text: board.won ? 'New Game' : 'Try again',

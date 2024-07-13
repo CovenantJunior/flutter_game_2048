@@ -14,10 +14,12 @@ class ButtonWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     if (icon != null) {
-      //Button Widget with icon for Undo and Restart Game button.
+      // Button Widget with icon for Undo and Restart Game button.
       return Container(
         decoration: BoxDecoration(
-            color: scoreColor, borderRadius: BorderRadius.circular(8.0)),
+          color: scoreColor,
+          borderRadius: BorderRadius.circular(8.0)
+        ),
         child: IconButton(
             color: textColorWhite,
             onPressed: onPressed,
@@ -27,17 +29,24 @@ class ButtonWidget extends ConsumerWidget {
             )),
       );
     }
-    //Button Widget with text for New Game and Try Again button.
-    return ElevatedButton(
-        style: ButtonStyle(
-          padding: MaterialStateProperty.all<EdgeInsets>(
-            const EdgeInsets.all(16.0)
+    // Button Widget with text for New Game and Try Again button.
+    return TextButton(
+        style: TextButton.styleFrom(
+          backgroundColor: scoreColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
           ),
-          backgroundColor: MaterialStateProperty.all<Color>(buttonColor)),
+          padding: const EdgeInsets.all(10)
+        ),
         onPressed: onPressed,
         child: Text(
           text!,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 18.0,
+            color: textColorWhite,
+            fontFamily: 'Quicksand'
+          ),
         ));
   }
 }
