@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 const backgroundColor = Color(0x511B1B1D);
+const darkColor = Color.fromARGB(255, 0, 0, 0);
 const titleColor = Color.fromARGB(255, 255, 255, 255);
 const textColor = Color.fromARGB(255, 0, 0, 0);
 const textColorWhite = Color(0xfff9f6f2);

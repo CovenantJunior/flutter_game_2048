@@ -55,6 +55,32 @@ class _GameState extends ConsumerState<Game>
     curve: Curves.easeInOut,
   );
 
+  void info() {
+    showDialog(
+      context: context,
+      builder: (context) => const AlertDialog(
+        backgroundColor: darkColor,
+        title: Text(
+          "Hint",
+          style: TextStyle(
+            fontFamily: "Quicksand",
+            fontWeight: FontWeight.w500,
+            fontSize: 20,
+            color: textColorWhite
+          ),
+        ),
+        content: Text(
+          "Notifications are shown at the best time of the day, just sit back",
+          style: TextStyle(
+            fontFamily: "Quicksand",
+            fontWeight: FontWeight.w500,
+            color: textColorWhite
+          )
+        ),
+    ),
+    );
+  }
+
   @override
   void initState() {
     // Add an Observer for the Lifecycles of the App
@@ -80,6 +106,30 @@ class _GameState extends ConsumerState<Game>
           }
         },
         child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: darkColor,
+            leading: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: IconButton(
+                  onPressed: info,
+                  icon: const Icon(
+                    Icons.info_outline_rounded,
+                    color: textColorWhite,
+                  )),
+            ),
+            actions: const [
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: IconButton(
+                  onPressed: null,
+                  icon: Icon(
+                    Icons.color_lens_outlined,
+                    color: textColorWhite,
+                  )
+                ),
+              )
+            ],
+          ),
           backgroundColor: backgroundColor,
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
