@@ -21,12 +21,13 @@ class ButtonWidget extends ConsumerWidget {
           borderRadius: BorderRadius.circular(8.0)
         ),
         child: IconButton(
-            color: textColorWhite,
-            onPressed: onPressed,
-            icon: Icon(
-              icon,
-              size: 24.0,
-            )),
+          color: textColorWhite,
+          onPressed: onPressed,
+          icon: Icon(
+            icon,
+            size: 24.0,
+          )
+        ),
       );
     }
     // Button Widget with text for New Game and Try Again button.

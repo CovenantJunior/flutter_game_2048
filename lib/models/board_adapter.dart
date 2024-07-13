@@ -8,13 +8,13 @@ class BoardAdapter extends TypeAdapter<Board> {
 
   @override
   Board read(BinaryReader reader) {
-    //Create a Board model from the json when reading the data that's being stored.
+    // Create a Board model from the json when reading the data that's being stored.
     return Board.fromJson(Map<String, dynamic>.from(reader.read()));
   }
 
   @override
   void write(BinaryWriter writer, Board obj) {
-    //Store the board model as json when writing the data to the database.
+    // Store the board model as json when writing the data to the database.
     writer.write(obj.toJson());
   }
 }

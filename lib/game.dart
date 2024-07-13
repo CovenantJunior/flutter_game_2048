@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_game_2048/themes/petal_animation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_swipe_detector/flutter_swipe_detector.dart';
 
@@ -70,15 +71,20 @@ class _GameState extends ConsumerState<Game>
           ),
         ),
         content: Text(
-          "Notifications are shown at the best time of the day, just sit back",
+          "Swipe to move the tiles. When two tiles with the same number touch, they merge into one!",
           style: TextStyle(
             fontFamily: "Quicksand",
             fontWeight: FontWeight.w500,
             color: textColorWhite
           )
         ),
-    ),
+      ),
     );
+  }
+
+  void themes() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const PetalMenu()));
   }
 
   @override
@@ -107,7 +113,7 @@ class _GameState extends ConsumerState<Game>
         },
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: darkColor,
+            backgroundColor: Colors.transparent,
             leading: Padding(
               padding: const EdgeInsets.all(10.0),
               child: IconButton(
@@ -117,12 +123,12 @@ class _GameState extends ConsumerState<Game>
                     color: textColorWhite,
                   )),
             ),
-            actions: const [
+            actions: [
               Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
+                  onPressed: themes,
+                  icon: const Icon(
                     Icons.color_lens_outlined,
                     color: textColorWhite,
                   )
