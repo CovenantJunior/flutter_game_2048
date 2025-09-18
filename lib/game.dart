@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_game_2048/themes/petal_animation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_swipe_detector/flutter_swipe_detector.dart';
 
@@ -82,11 +81,6 @@ class _GameState extends ConsumerState<Game>
     );
   }
 
-  void themes() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const PetalMenu()));
-  }
-
   @override
   void initState() {
     // Add an Observer for the Lifecycles of the App
@@ -123,18 +117,6 @@ class _GameState extends ConsumerState<Game>
                     color: textColorWhite,
                   )),
             ),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: IconButton(
-                  onPressed: themes,
-                  icon: const Icon(
-                    Icons.color_lens_outlined,
-                    color: textColorWhite,
-                  )
-                ),
-              )
-            ],
           ),
           backgroundColor: backgroundColor,
           body: Column(
