@@ -169,12 +169,24 @@ class _GameState extends ConsumerState<Game>
                         ),
                         Row(
                           children: [
-                            ButtonWidget(
-                              icon: Icons.undo,
-                              onPressed: () {
-                                // Undo the round.
-                                ref.read(boardManager.notifier).undo();
-                              },
+                            Stack(
+                              children: [
+                                ButtonWidget(
+                                  icon: Icons.undo,
+                                  onPressed: () {
+                                    // Undo the round.
+                                    ref.read(boardManager.notifier).undo();
+                                  },
+                                ),
+                                const Positioned(
+                                  right: 0,
+                                  child: Icon(   
+                                    Icons.movie_filter_outlined,
+                                    color: Colors.white,
+                                    size: 20.0,
+                                  ),
+                                ),
+                              ]
                             ),
                             const SizedBox(
                               width: 10.0,
