@@ -50,6 +50,8 @@ dependencies:
 
   # Used together with json_serializable to generate fromJson/toJson functions
   json_annotation: ^4.5.0
+  google_mobile_ads: ^6.0.0
+  fluttertoast: ^8.2.14
 
 dev_dependencies:
   flutter_test:

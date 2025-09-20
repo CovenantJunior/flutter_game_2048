@@ -3,6 +3,9 @@
         android:label="Classic 2048"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8379581354079241~3192636245"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
