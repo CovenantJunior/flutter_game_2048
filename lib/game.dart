@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_game_2048/ads/interstitial.dart';
+import 'package:flutter_game_2048/ads/rewarded.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_swipe_detector/flutter_swipe_detector.dart';
 
@@ -16,8 +20,7 @@ class Game extends ConsumerStatefulWidget {
   ConsumerState<ConsumerStatefulWidget> createState() => _GameState();
 }
 
-class _GameState extends ConsumerState<Game>
-    with TickerProviderStateMixin, WidgetsBindingObserver {
+class _GameState extends ConsumerState<Game> with TickerProviderStateMixin, WidgetsBindingObserver {
   // The contoller used to move the the tiles
   late final AnimationController _moveController = AnimationController(
     duration: const Duration(milliseconds: 100),
@@ -55,6 +58,9 @@ class _GameState extends ConsumerState<Game>
     curve: Curves.easeInOut,
   );
 
+  Timer? _timer;
+  late RewardedAds _rewardedAdService;
+
   void info() {
     showDialog(
       context: context,
@@ -81,10 +87,17 @@ class _GameState extends ConsumerState<Game>
     );
   }
 
+  void _startTimer() {
+    _timer = Timer.periodic(const Duration(minutes: 10), (timer) {
+      InterstitialAds().loadInterstitialAd(context);
+    });
+  }
+
   @override
   void initState() {
     // Add an Observer for the Lifecycles of the App
     WidgetsBinding.instance.addObserver(this);
+    _startTimer();
     super.initState();
   }
 
@@ -173,9 +186,11 @@ class _GameState extends ConsumerState<Game>
                               children: [
                                 ButtonWidget(
                                   icon: Icons.undo,
-                                  onPressed: () {
+                                  onPressed: () async {
                                     // Undo the round.
-                                    ref.read(boardManager.notifier).undo();
+                                    if(await _rewardedAdService.showRewardedAd(context)) {
+                                      ref.read(boardManager.notifier).undo();
+                                    }
                                   },
                                 ),
                                 const Positioned(
@@ -195,6 +210,7 @@ class _GameState extends ConsumerState<Game>
                               icon: Icons.refresh,
                               onPressed: () {
                                 // Restart the game
+                                InterstitialAds().loadInterstitialAd(context);
                                 ref.read(boardManager.notifier).newGame();
                               },
                             )
@@ -242,6 +258,7 @@ class _GameState extends ConsumerState<Game>
     _scaleAnimation.dispose();
     _moveController.dispose();
     _scaleController.dispose();
+    _timer?.cancel();
     super.dispose();
   }
 }

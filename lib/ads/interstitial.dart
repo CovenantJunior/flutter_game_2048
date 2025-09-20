@@ -8,9 +8,9 @@ class InterstitialAds {
   /// TODO: replace this test ad unit with your own ad unit
   final String interstitialAdUnitId = Platform.isAndroid
       // Use this ad unit on Android...
-      ? 'ca-app-pub-8379581354079241/8602170823'
+      ? 'ca-app-pub-8379581354079241/9362512670'
       // ... or this one on iOS.
-      : 'ca-app-pub-8379581354079241/8602170823';
+      : 'ca-app-pub-8379581354079241/9362512670';
 
   /// Interstitial ad instance.
   InterstitialAd? _interstitialAd;

@@ -9,9 +9,9 @@ class RewardedAds {
   /// TODO: replace this test ad unit with your own ad unit
   final String rewardedAdUnitId = Platform.isAndroid
       // Use this ad unit on Android...
-      ? 'ca-app-pub-8379581354079241/5395347502'
+      ? 'ca-app-pub-8379581354079241/8951449134'
       // ... or this one on iOS.
-      : 'ca-app-pub-8379581354079241/5395347502';
+      : 'ca-app-pub-8379581354079241/8951449134';
 
   /// Rewarded ad instance.
   RewardedAd? _rewardedAd;
@@ -47,7 +47,7 @@ class RewardedAds {
       onUserEarnedReward: (AdWithoutView ad, RewardItem reward) {
         debugPrint('User earned reward: ${reward.amount} ${reward.type}');
         Fluttertoast.showToast(
-          msg: "Undoing last move",
+          msg: "One-time Premium Feature Unlocked",
           toastLength: Toast.LENGTH_LONG,
           gravity: ToastGravity.SNACKBAR,
           timeInSecForIosWeb: 1,
